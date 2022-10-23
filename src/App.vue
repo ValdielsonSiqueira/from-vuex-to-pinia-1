@@ -7,8 +7,24 @@
       <router-link :to="{ name: 'EventCreate' }">Create Event</router-link>
     </div>
     <router-view />
+    <p>Logged in as {{ userStore.firstName }}</p>
   </div>
 </template>
+<script>
+import { useUserStore } from './stores/UserStore.js';
+
+export default {
+  setup() {
+    const userStore =  useUserStore()
+
+    return {
+      userStore
+    }
+  }
+}
+
+</script>
+
 
 <style>
 #app {
